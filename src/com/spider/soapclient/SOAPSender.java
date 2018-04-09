@@ -7,8 +7,6 @@ import java.net.Authenticator;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sun.xml.messaging.saaj.client.p2p.HttpSOAPConnection;
-
 import java.net.URL;
 import java.net.HttpURLConnection;
 import sun.net.www.protocol.http.AuthCacheImpl;
@@ -16,6 +14,7 @@ import sun.net.www.protocol.http.AuthCacheValue;
 
 import javax.xml.soap.MessageFactory;
 import javax.xml.soap.SOAPConnectionFactory;
+import javax.xml.soap.SOAPConnection;
 import javax.xml.soap.SOAPElement;
 import javax.xml.soap.SOAPFactory;
 import javax.xml.soap.SOAPMessage;
@@ -82,7 +81,7 @@ public class SOAPSender {
 		
 		//Send the message
 		SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
-		HttpSOAPConnection connection =  (HttpSOAPConnection) soapConnectionFactory.createConnection();
+		SOAPConnection connection = soapConnectionFactory.createConnection();
 		URL u = new URL(url);
 		SOAPMessage responseMessage = connection.call(message, u);
 		connection.close();
