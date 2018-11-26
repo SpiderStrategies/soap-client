@@ -1,5 +1,7 @@
-/bin/
-/lib/
-/dist/
-.classpath
-.project
+.idea
+*iml
+build
+out
+gradle
+.gradle
+*.xml
